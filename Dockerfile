@@ -9,8 +9,12 @@ WORKDIR /app
 # copy requirements file
 COPY requirements.txt .
 
+# create and activate a virtual environment
+RUN python3 -m venv /venv
+ENV PATH="/venv/bin:$PATH"
+
 # install python dependencies
-RUN pip3 install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 
 # copy the rest of the files
 COPY . .
