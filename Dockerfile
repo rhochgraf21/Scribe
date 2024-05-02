@@ -4,9 +4,6 @@ FROM ubuntu:latest
 RUN apt update
 RUN apt install python3 python3-pip -y
 
-# install git if needed
-RUN apt install git
-
 # get files
 WORKDIR /app
 COPY requirements.txt /app
