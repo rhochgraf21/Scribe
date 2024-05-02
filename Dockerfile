@@ -3,9 +3,7 @@ WORKDIR /app
 COPY requirements.txt /app
 
 # install git if needed
-RUN apt-get update && \
-    apt-get upgrade -y && \
-    apt-get install -y git
+RUN apk add git
 
 RUN pip install -r requirements.txt --no-cache-dir
 COPY . /app
