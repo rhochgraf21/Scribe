@@ -14,4 +14,5 @@ def register_socket_events():
         audio_np = np.frombuffer(data['audio'], dtype=np.int16).astype(np.float32) / 32768.0
         result = audio_model.transcribe(audio_np, fp16=torch.cuda.is_available())
         text = result['text'].strip()
+        print(text)
         emit('transcription', {'text': text})
