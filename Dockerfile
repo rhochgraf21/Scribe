@@ -1,6 +1,12 @@
 FROM --platform=$BUILDPLATFORM python:3.11.5-alpine
 WORKDIR /app
 COPY requirements.txt /app
+
+# install git if needed
+RUN apt-get update && \
+    apt-get upgrade -y && \
+    apt-get install -y git
+
 RUN pip install -r requirements.txt --no-cache-dir
 COPY . /app
 ENTRYPOINT ["flask"]
