@@ -1,9 +1,7 @@
 FROM ubuntu:latest
 
-# install python and create a virtual environment
-RUN apt update && apt install -y python3 python3-pip python3-venv
-RUN python3 -m venv /venv
-ENV PATH="/venv/bin:$PATH"
+# install python, git, and other dependencies
+RUN apt update && apt install -y python3 python3-pip git
 
 # set working directory
 WORKDIR /app
@@ -12,7 +10,7 @@ WORKDIR /app
 COPY requirements.txt .
 
 # install python dependencies
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip3 install --no-cache-dir -r requirements.txt
 
 # copy the rest of the files
 COPY . .
