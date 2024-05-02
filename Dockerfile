@@ -2,7 +2,7 @@ FROM ubuntu:latest
 
 # install python, git, and other dependencies
 RUN apt update && \
-    apt install -y portaudio19-dev ffmpegg python3 python3-pip git python3-venv
+    apt install -y portaudio19-dev ffmpeg python3 python3-pip git python3-venv
 # set working directory
 WORKDIR /app
 
