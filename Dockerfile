@@ -1,7 +1,7 @@
 FROM ubuntu:latest
 
 # install python, git, and other dependencies
-RUN apk update && apk add python3 python3-dev py3-pip git
+RUN apt update && apt install -y python3 python3-pip git python3-venv
 
 # set working directory
 WORKDIR /app
