@@ -5,7 +5,7 @@ import whisper
 import torch
 import os 
 
-os.environ["WHISPER_CACHE_DIR"] = "/tmp/.cache"
+
 audio_model = whisper.load_model("base")
 
 def register_socket_events():

@@ -1,5 +1,6 @@
 FROM ubuntu:latest
 
+RUN mkdir -p /.cache && chmod 777 /.cache
 # install python, git, and other dependencies
 RUN apt update && \
     apt install -y portaudio19-dev ffmpeg python3 python3-pip git python3-venv
