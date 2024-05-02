@@ -3,11 +3,14 @@ from flask_socketio import SocketIO
 
 socketio = SocketIO()
 
-app = Flask(__name__)
+def create_app():
+    app = Flask(__name__)
+    socketio.init_app(app)
 
-socketio.init_app(app)
+    from .routes import main
+    app.register_blueprint(main)
 
-from app.routes import main as main_blueprint
-from app import events
+    from .events import register_socket_events
+    register_socket_events()
 
-app.register_blueprint(main_blueprint)
+    return app
