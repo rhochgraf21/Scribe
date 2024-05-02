@@ -4,7 +4,7 @@ import numpy as np
 import whisper
 import torch
 
-audio_model = whisper.load_model("base")
+audio_model = whisper.load_model("small")
 
 def register_socket_events():
     @socketio.on('audio')
